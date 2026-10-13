@@ -1,23 +1,24 @@
 scan_timeout = 45
 
 format = """
+$nix_shell\
 $directory\
-$git_branch\
-$git_status\
-$git_commit\
-$cmd_duration\
-$fill\
-$git_metrics\
 $rust\
 $c\
 $cpp\
 $zig\
 $golang\
-$nix_shell\
 $lua\
+$git_branch\
+$git_status\
+$git_commit\
+$fill\
+$git_metrics\
 $line_break\
 $character\
 """
+
+right_format = "$cmd_duration"
 
 [directory]
 truncation_length = 5
@@ -30,7 +31,7 @@ use_os_path_sep = false
 
 [git_branch]
 always_show_remote = false
-format = '[$symbol$branch(:$remote_branch)]($style) '
+format = '| [$symbol$branch(:$remote_branch)]($style) '
 symbol = " "
 style = 'bold purple'
 truncation_symbol = '…'
@@ -63,21 +64,21 @@ index_typechanged = ""
 disabled = false
 use_git_executable = false
 
-[git_commit]
-commit_hash_length = 7
-format = '[#$hash$tag]($style) '
-style = 'bold green'
-only_detached = false
-tag_disabled = true
-tag_max_candidates = 0
-tag_symbol = '🔖 '
-disabled = false
+#[git_commit]
+#commit_hash_length = 7
+#format = '| [@$hash$tag]($style) '
+#style = 'bold green'
+#only_detached = false
+#tag_disabled = true
+#tag_max_candidates = 0
+#tag_symbol = '🔖 '
+#disabled = false
 
 [cmd_duration]
 min_time = 2_000
 show_milliseconds = false
-format = ' [ $duration]($style) '
-style = '238'
+format = 'took [$duration]($style) '
+style = 'bold yellow'
 disabled = false
 show_notifications = false
 min_time_to_notify = 45_000
@@ -85,16 +86,16 @@ min_time_to_notify = 45_000
 [fill]
 symbol = ' '
 
-[git_metrics]
-added_style = 'bold green'
-deleted_style = 'bold red'
-only_nonzero_diffs = true
-format = '([+$added]($added_style) )([-$deleted]($deleted_style) )'
-disabled = false
-ignore_submodules = false
+#[git_metrics]
+#added_style = 'bold green'
+#deleted_style = 'bold red'
+#only_nonzero_diffs = true
+#format = '([+$added]($added_style) )([-$deleted]($deleted_style) )'
+#disabled = false
+#ignore_submodules = false
 
 [rust]
-format = '[$symbol($version )]($style)'
+format = '| [$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = ' '
 detect_extensions = ['rs']
@@ -104,7 +105,7 @@ style = 'bold red'
 disabled = false
 
 [c]
-format = '[$symbol($version(\($name)\) )]($style)'
+format = '| [$symbol($version(\($name)\) )]($style)'
 version_format = 'v${raw}'
 symbol = ' '
 detect_extensions = ['c', 'h']
@@ -115,7 +116,7 @@ style = 'bold 149'
 disabled = false
 
 [cpp]
-format = '[$symbol($version(-$name) )]($style)'
+format = '| [$symbol($version(-$name) )]($style)'
 version_format = 'v${raw}'
 symbol = ' '
 detect_extensions = [
@@ -127,16 +128,29 @@ detect_extensions = [
     'hh',
     'hxx',
     'h++',
-    'tcc'
+    'tcc',
 ]
 detect_files = []
 detect_folders = []
-commands = [ [ 'c++', '--version' ], [ 'g++', '--version' ], [ 'clang++', '--version' ] ]
+commands = [
+    [
+        'c++',
+        '--version',
+    ],
+    [
+        'g++',
+        '--version',
+    ],
+    [
+        'clang++',
+        '--version',
+    ],
+]
 style = 'bold 149'
 disabled = false
 
 [zig]
-format = '[$symbol($version )]($style)'
+format = '| [$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '↯ '
 style = 'bold yellow'
@@ -146,7 +160,7 @@ detect_files = []
 detect_folders = []
 
 [golang]
-format = '[$symbol($version )]($style)'
+format = '| [$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🐹 '
 detect_extensions = ['go']
@@ -157,7 +171,7 @@ detect_files = [
     'glide.yaml',
     'gopkg.yml',
     'gopkg.lock',
-    '.go-version'
+    '.go-version',
 ]
 detect_folders = ['Godeps']
 style = 'bold cyan'
@@ -165,7 +179,7 @@ not_capable_style = 'bold red'
 disabled = false
 
 [nix_shell]
-format = '[$symbol$state(\$name\))]($style) '
+format = '[$symbol$state(\$name\))]($style) |'
 symbol = '❄️ '
 style = 'bold blue'
 impure_msg = 'impure'
@@ -175,7 +189,7 @@ disabled = false
 heuristic = false
 
 [lua]
-format = '[$symbol($version)]($style)'
+format = '| [$symbol($version)]($style)'
 version_format = 'v${raw}'
 symbol = '🌙 '
 detect_extensions = ['lua']
@@ -189,4 +203,4 @@ disabled = false
 
 [character]
 success_symbol = "[❯](189)"
-error_symbol = "[❯](189)"
+error_symbol = "[❯](bold yellow)"
