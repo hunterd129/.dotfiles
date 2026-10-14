@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-# shellcheck disable=SC3040
+#!/usr/bin/bash
 
 set -euo pipefail
 
@@ -25,12 +23,9 @@ sudo pacman -S --noconfirm --needed \
 	go \
 	rustup \
 	rust-analyzer \
-	vis \
 	markdownlint \
 	discount \
 	shfmt \
-	vis-lexers \
-	lua-lpeg \
 	cmake \
 	ttc-iosevka-aile \
 	ttc-iosevka-etoile \
@@ -64,10 +59,6 @@ git clone https://github.com/hunterd129/upgrade_notify ~/Projects/upgradeNotify
 git clone https://github.com/hunterd129/wallpaper_shuffler_rs ~/Projects/wall_shuff
 git clone https://github.com/hunterd129/batch_renamer ~/Projects/batch_renamer
 
-# Emacs
-systemctl --user daemon-reload
-systemctl --user enable --now emacs.service
-
 # Dotfiles
 printf "\e[0;34m==> Stowing configs...\e[0m\n"
 
@@ -75,13 +66,16 @@ stow doom
 stow bash
 stow fastfetch
 stow ghostty
-#stow nvim
-stow vis
+stow nvim
 stow starship
 
 printf "\e[0;34mNote: Please stow zsh manually after editing /etc/zsh/zshenv\e[0m\n"
 
 sleep 2
+
+# Emacs
+systemctl --user daemon-reload
+systemctl --user enable --now emacs.service
 
 # Chaotic AUR
 printf "\e[0;34m==> Adding chaotic AUR repository...\e[0m\n"

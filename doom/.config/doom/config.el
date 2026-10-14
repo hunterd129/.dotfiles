@@ -33,7 +33,7 @@
                            :weight 'medium))
 
     ;; Theme
-    (setq doom-theme 'doom-gruvbox)
+    (setq doom-theme 'doom-dracula)
 
     ;; Line numbers
     (setq display-line-numbers-type 'relative)

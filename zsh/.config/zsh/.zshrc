@@ -53,7 +53,7 @@ export FZF_DEFAULT_OPTS='
   --preview-window=right:65%:wrap:border-left
 '
 
-export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:500 {}'
+export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:499 {}'
 export FZF_CTRL_T_OPTS="--preview '$_FZF_PREVIEW_CMD'"
 
 # Ctrl+F: file picker excluding hidden files
@@ -125,7 +125,7 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # Context aware prompt
 if [[ "$(tty)" == /dev/tty[0-9]* ]]; then
-	PROMPT=$'%K{black}%F{cyan}%~%k%f\n%F{white}>%f '
+	PROMPT=$'%K{black}%F{cyan}%~%k%f\n%F{magenta}>%f '
 else
 	eval "$(starship init zsh)"
 fi

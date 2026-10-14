@@ -189,7 +189,7 @@ disabled = false
 heuristic = false
 
 [lua]
-format = '| [$symbol($version)]($style)'
+format = '| [$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🌙 '
 detect_extensions = ['lua']
