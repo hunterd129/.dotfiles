@@ -6,14 +6,10 @@ $directory\
 $rust\
 $c\
 $cpp\
-$zig\
 $golang\
 $lua\
 $git_branch\
 $git_status\
-$git_commit\
-$fill\
-$git_metrics\
 $line_break\
 $character\
 """
@@ -64,16 +60,6 @@ index_typechanged = ""
 disabled = false
 use_git_executable = false
 
-#[git_commit]
-#commit_hash_length = 7
-#format = '| [@$hash$tag]($style) '
-#style = 'bold green'
-#only_detached = false
-#tag_disabled = true
-#tag_max_candidates = 0
-#tag_symbol = '🔖 '
-#disabled = false
-
 [cmd_duration]
 min_time = 2_000
 show_milliseconds = false
@@ -85,14 +71,6 @@ min_time_to_notify = 45_000
 
 [fill]
 symbol = ' '
-
-#[git_metrics]
-#added_style = 'bold green'
-#deleted_style = 'bold red'
-#only_nonzero_diffs = true
-#format = '([+$added]($added_style) )([-$deleted]($deleted_style) )'
-#disabled = false
-#ignore_submodules = false
 
 [rust]
 format = '| [$symbol($version )]($style)'
@@ -148,16 +126,6 @@ commands = [
 ]
 style = 'bold 149'
 disabled = false
-
-[zig]
-format = '| [$symbol($version )]($style)'
-version_format = 'v${raw}'
-symbol = '↯ '
-style = 'bold yellow'
-disabled = false
-detect_extensions = ['zig']
-detect_files = []
-detect_folders = []
 
 [golang]
 format = '| [$symbol($version )]($style)'
