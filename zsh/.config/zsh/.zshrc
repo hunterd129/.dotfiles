@@ -97,9 +97,9 @@ alias vim='nvim'
 alias tmacs='emacsclient -t'
 
 # Eza
-alias ls='tzst_eza_build --icons always'
-alias ll='tzst_eza_build -lhAobn --no-permissions --group-directories-first --icons always'
-alias tree='tzst_eza_build --tree --icons always'
+alias ls='eza --icons always'
+alias ll='eza -lhAobn --no-permissions --group-directories-first --icons always'
+alias tree='eza --tree --icons always'
 
 # Reuse ls completions for eza
 compdef eza=ls
@@ -113,6 +113,11 @@ alias cd='z'
 alias rm='rm -Iv'
 alias cp='cp -v'
 alias pacsrch="pacman -Ss --color=always | paste -d ' ' - - | fzf --ansi --height 95% --preview 'pacman -Si {1}' --preview-window=right:50%:wrap"
+
+# Easy way to find prefix for game
+protongrep() {
+    protontricks -l | rg -i "$1"
+}
 
 # ---------- PATH ----------
 
