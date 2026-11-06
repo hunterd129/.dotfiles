@@ -133,7 +133,7 @@ protongrep() {
 
 # Basic version of sudoedit/sudo -e
 doasedit() {
-	doas nvim "$@"
+	doas rvim "$@"
 }
 
 # ---------- PATH ----------
