@@ -1,6 +1,6 @@
 window-width = 212
 window-height = 50
-font-family = "IosevkaTerm Nerd Font Mono"
+font-family = "Iosevka Term SS08"
 font-size = 14.5
 theme = Catppuccin Mocha
 resize-overlay = never
