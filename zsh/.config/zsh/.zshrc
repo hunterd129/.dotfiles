@@ -101,36 +101,6 @@ alias rm='rm -Iv'
 alias cp='cp -v'
 alias pacsrch="pacman -Ss --color=always | paste -d ' ' - - | fzf --ansi --height 95% --preview 'pacman -Si {1}' --preview-window=right:50%:wrap"
 
-# =========================================================
-# Functions
-# =========================================================
-
-# Easy way to find prefix for game then copy the appid to clipboard.
-
-# i.e. `protongrep "blackops"` then `protontricks [ctrl+shift+v] wmp11` for example.
-
-# Alternatively, protongrep without arguments opens in fzf then copies selected game's 
-# appid to clipboard
-protongrep() {
-    if [ $# -eq 0 ]; then
-        local selection
-        selection=$(protontricks -l | fzf --prompt="Proton Prefixes > ") || return 1
-        [ -z "$selection" ] && return 1
-
-        local appid
-        appid=$(echo "$selection" | sed -n 's/.*(\([0-9]\+\)).*/\1/p')
-
-        local gamename
-        gamename=$(echo "$selection" | sed -E 's/ \([0-9]+\)$//')
-
-        printf "%s" "$appid" | wl-copy
-
-        printf "\e[1;32mSelected Game: \e[0m%s\n\n\e[1;31mPrefix ID:\e[0m %s\n" "$gamename" "$appid"
-    else
-        protontricks -l | rg -i "$1" | sed -n 's/.*(\([0-9]\+\)).*/\1/p' | tr -d '\n' | wl-copy
-    fi
-}
-
 # Basic version of sudoedit/sudo -e
 doasedit() {
 	doas rvim "$@"
