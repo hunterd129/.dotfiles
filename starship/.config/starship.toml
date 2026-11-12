@@ -97,7 +97,7 @@ symbol = ' '
 detect_extensions = ['c', 'h']
 detect_files = []
 detect_folders = []
-commands = [['cc', '--version'], ['gcc', '--version'], ['clang', '--version']]
+commands = [['clang', '--version'], ['gcc', '--version'], ['cc', '--version']]
 style = 'bold 149'
 disabled = false
 
