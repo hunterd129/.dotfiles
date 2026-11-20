@@ -8,3 +8,4 @@ cursor-style = underline
 window-title-font-family = "Iosevka Aile"
 gtk-titlebar-hide-when-maximized = true
 
+theme = noctalia
