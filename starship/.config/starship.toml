@@ -120,7 +120,7 @@ detect_files = []
 detect_folders = []
 commands = [
     [
-        'c++',
+        'clang++',
         '--version',
     ],
     [
@@ -128,7 +128,7 @@ commands = [
         '--version',
     ],
     [
-        'clang++',
+        'c++',
         '--version',
     ],
 ]
