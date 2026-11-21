@@ -2,6 +2,8 @@
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
+//
+spawn-at-startup "noctalia"
 config-notification {
     disable-failed
 }
@@ -52,6 +54,7 @@ input {
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
 }
+
 
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
@@ -136,6 +139,7 @@ overview {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 environment {
   XDG_CURRENT_DESKTOP "niri"
+  XDG_SESSION_TYPE "wayland"
 }
 hotkey-overlay {
     skip-at-startup
@@ -240,11 +244,12 @@ recent-windows {
     }
 }
 
-// Include dms files
-include optional=true "dms/colors.kdl"
-include optional=true "dms/layout.kdl"
-include optional=true "dms/alttab.kdl"
-include optional=true "dms/binds.kdl"
-include optional=true "dms/outputs.kdl"
-include optional=true "dms/cursor.kdl"
-include optional=true "dms/input.kdl"
+// Moduiles
+include optional=true "modules/binds.kdl"
+include optional=true "modules/outputs.kdl"
+include optional=true "modules/input.kdl"
+include optional=true "modules/appearance.kdl"
+
+include "noctalia.kdl"
+
+
