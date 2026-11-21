@@ -3,6 +3,4 @@
 -- Add any additional keymaps here
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<leader>pv", ":Ex <CR>")
-desc = { "Project view" }
 vim.keymap.set("n", "<leader>fs", ":w <CR>")
-desc = { "Write file" }
