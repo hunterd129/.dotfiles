@@ -66,23 +66,6 @@ stow starship
 
 printf "\e[0;34mNote: Please stow zsh manually after editing /etc/zsh/zshenv\e[0m\n"
 
-sleep 2
-
-# Chaotic AUR
-printf "\e[0;34m==> Adding chaotic AUR repository...\e[0m\n"
-
-sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-sudo pacman-key --lsign-key 3056513887B78AEB
-
-sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
-sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-
-printf "\e[0;34m==> Appending chaotic AUR to pacman.conf...\e[0m\n"
-
-printf "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n" | sudo tee -a /etc/pacman.conf
-
-printf "\e[0;34m==> Updating system...\e[0m\n"
-
-sudo pacman -Syu
+sleep 1
 
 printf "\e[0;32m==> Post-install complete.\e[0m\n"
