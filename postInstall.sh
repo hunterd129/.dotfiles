@@ -15,9 +15,9 @@ clear
 
 printf "\e[0;34m==> Installing basic packages...\e[0m\n"
 
-# Emacs, langs, LSPs, Fonts, Shell, and Dotfile management
+# neovim, langs, LSPs, Fonts, Shell, and Dotfile management
 sudo pacman -S --noconfirm --needed \
-    emacs-wayland \
+    neovim \
     shellcheck \
     gopls \
     go \
@@ -26,7 +26,6 @@ sudo pacman -S --noconfirm --needed \
     markdownlint \
     discount \
     shfmt \
-    cmake \
     ttc-iosevka-aile \
     ttc-iosevka-etoile \
     ttf-iosevka-nerd \
@@ -59,7 +58,6 @@ git clone https://github.com/hunterd129/batch_renamer ~/Projects/batch_renamer
 # Dotfiles
 printf "\e[0;34m==> Stowing configs...\e[0m\n"
 
-stow doom
 stow bash
 stow fastfetch
 stow ghostty
@@ -69,10 +67,6 @@ stow starship
 printf "\e[0;34mNote: Please stow zsh manually after editing /etc/zsh/zshenv\e[0m\n"
 
 sleep 2
-
-# Emacs
-systemctl --user daemon-reload
-systemctl --user enable --now emacs.service
 
 # Chaotic AUR
 printf "\e[0;34m==> Adding chaotic AUR repository...\e[0m\n"
