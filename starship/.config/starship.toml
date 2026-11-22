@@ -9,6 +9,7 @@ $c\
 $cpp\
 $golang\
 $lua\
+$zig\
 $git_branch\
 $git_status\
 $line_break\
@@ -154,6 +155,26 @@ style = 'bold cyan'
 not_capable_style = 'bold red'
 disabled = false
 
+[lua]
+format = '| [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = '🌙 '
+detect_extensions = ['lua']
+detect_files = ['.lua-version']
+style = 'bold blue'
+lua_binary = 'lua'
+disabled = false
+
+[zig]
+format = '| [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = '↯ '
+style = 'bold yellow'
+disabled = false
+detect_extensions = ['zig']
+detect_files = []
+detect_folders = []
+
 [nix_shell]
 format = '[$symbol$state(\$name\))]($style) |'
 symbol = '❄️ '
@@ -164,15 +185,6 @@ unknown_msg = ''
 disabled = false
 heuristic = false
 
-[lua]
-format = '| [$symbol($version )]($style)'
-version_format = 'v${raw}'
-symbol = '🌙 '
-detect_extensions = ['lua']
-detect_files = ['.lua-version']
-style = 'bold blue'
-lua_binary = 'lua'
-disabled = false
 
 [line_break]
 disabled = false
