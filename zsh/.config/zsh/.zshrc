@@ -84,7 +84,7 @@ alias vim='nvim'
 alias tmacs='emacsclient -t'
 
 # Eza
-alias ls='eza --icons always'
+alias ls='eza -lobn --no-permissions --group-directories-first --icons always'
 alias ll='eza -lhAobn --no-permissions --group-directories-first --icons always'
 alias tree='eza --tree --icons always'
 
