@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ $# -gt 0 ]; then
     selection=$(protontricks -l | rg -i "$1" | head -n 1)

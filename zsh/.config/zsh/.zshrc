@@ -79,9 +79,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # =========================================================
 
 # Editor(s)
-alias emacs='emacsclient -c -a ""'
 alias vim='nvim'
-alias tmacs='emacsclient -t'
 
 # Eza
 alias ls='eza -lobn --no-permissions --group-directories-first --icons always'
